@@ -20,8 +20,8 @@ class Hand:
         return True
 
     
-c1 = Card("2", "H")
-c2= Card("3", "S")
-c3= Card("4", "D")
-h = Hand([c3,c2,c2])
-print(h.is_straight())
+# c1 = Card("2", "H")
+# c2= Card("3", "S")
+# c3= Card("4", "D")
+# h = Hand([c3,c2,c2])
+# print(h.is_straight())
