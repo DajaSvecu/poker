@@ -1,0 +1,12 @@
+class Card
+class Hand
+recognize:
+- Straight flush 
+- Four of a kind 
+- Full house 
+- Flush [x]
+- Straight [x]
+- Three of a kind
+- Two pair
+- One pair
+- High card
