@@ -1,25 +1,6 @@
 class Card:
-    __ranks = {
-        "2":1,
-        "3":2,
-        "4":3,
-        "5":4,
-        "6":5,
-        "7":6,
-        "8":7,
-        "9":8,
-        "10":9,
-        "J":10,
-        "Q":11,
-        "K":12,
-        "A":13,
-    }
-    __suits = {
-        "C": 1,
-        "D": 2,
-        "H": 3,
-        "S": 4,
-    }
+    __ranks = ("2","3","4","5","6","7","8","9","10","J","Q","K","A")
+    __suits = ("C","D","H","S")
     def __init__(self, rank:str, suit:str) -> None:
         self.rank = rank
         self.suit = suit
@@ -28,7 +9,7 @@ class Card:
         return f"{self.rank}{self.suit}"
     
     def get_rank(self) -> int:
-        return self.__ranks[self.rank]
+        return self.__ranks.index(self.rank)
     
     def get_suit(self) -> int:
-        return self.__suits[self.suit]
+        return self.__suits.index(self.suit)
