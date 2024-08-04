@@ -2,21 +2,21 @@ class Card
 class Hand
 recognize:
 - Straight flush 
-- Four of a kind 
-- Full house 
+- Four of a kind [x] 
+- Full house [x]
 - Flush [x]
 - Straight [x]
-- Three of a kind
-- Two pair
-- One pair
-- High card
+- Three of a kind [x]
+- Two pair [x]
+- One pair [x]
+- High card [x]
 tests:
 - Straight flush 
-- Four of a kind 
-- Full house 
-- Flush
-- Straight
-- Three of a kind
-- Two pair
-- One pair
-- High card
+- Four of a kind [x]
+- Full house
+- Flush [x]
+- Straight [x]
+- Three of a kind [x]
+- Two pair [x]
+- One pair [x]
+- High card [x]
