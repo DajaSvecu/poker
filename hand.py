@@ -1,6 +1,8 @@
-from card import Card
-from typing import List
 from collections import Counter
+from typing import List
+
+from card import Card
+
 
 class PokerHand:
     def __init__(self, cards: List[Card]) -> None:
@@ -10,18 +12,18 @@ class PokerHand:
 
     def __str__(self) -> str:
         return " ".join([str(card) for card in self.cards])
-    
+
     def flush(self):
         suits = [card.get_suit() for card in self.cards]
         return len(set(suits)) == 1
-    
+
     def straight(self):
         ranks = sorted([card.get_rank() for card in self.cards])
-        for i in range(len(ranks)-1):
-            if ranks[i]+1 != ranks[i+1]:
+        for i in range(len(ranks) - 1):
+            if ranks[i] + 1 != ranks[i + 1]:
                 return False
         return True
-    
+
     @staticmethod
     def of_a_kind(cards: List[Card], number: int) -> bool:
         rank_counter = Counter([card.get_rank() for card in cards])
@@ -29,13 +31,13 @@ class PokerHand:
             if rank_counter[rank] == number:
                 return True
         return False
-    
+
     def four_of_a_kind(self) -> bool:
         return self.of_a_kind(self.cards, 4)
-    
+
     def three_of_a_kind(self) -> bool:
         return self.of_a_kind(self.cards, 3)
-    
+
     def two_of_a_kind(self) -> bool:
         return self.of_a_kind(self.cards, 2)
 

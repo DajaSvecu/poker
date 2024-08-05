@@ -1,46 +1,55 @@
 import unittest
-from hand import PokerHand
+
 from card import Card
+from hand import PokerHand
+
 
 class TestPokerHand(unittest.TestCase):
     def setUp(self) -> None:
-        self.straight_flush = PokerHand([Card(str(x), "D") for x in range(2,7)])
-        self.poker = PokerHand([
-            Card("A", "D"),
-            Card("A", "S"),
-            Card("A", "H"),
-            Card("A", "C"),
-            Card("K","D")
-        ])
-        self.full_house = PokerHand([
-            Card("A", "D"),
-            Card("A", "S"),
-            Card("A", "H"),
-            Card("K", "C"),
-            Card("K","D")
-        ])
-        self.two_pair = PokerHand([
-            Card("A", "D"),
-            Card("A", "S"),
-            Card("2", "H"),
-            Card("K", "C"),
-            Card("K","D")
-        ])
+        self.straight_flush = PokerHand([Card(str(x), "D") for x in range(2, 7)])
+        self.poker = PokerHand(
+            [
+                Card("A", "D"),
+                Card("A", "S"),
+                Card("A", "H"),
+                Card("A", "C"),
+                Card("K", "D"),
+            ]
+        )
+        self.full_house = PokerHand(
+            [
+                Card("A", "D"),
+                Card("A", "S"),
+                Card("A", "H"),
+                Card("K", "C"),
+                Card("K", "D"),
+            ]
+        )
+        self.two_pair = PokerHand(
+            [
+                Card("A", "D"),
+                Card("A", "S"),
+                Card("2", "H"),
+                Card("K", "C"),
+                Card("K", "D"),
+            ]
+        )
         return super().setUp()
+
     def test_less_than_5_cards(self):
         with self.assertRaises(ValueError) as context:
-            hand = PokerHand([Card("2","D") for _ in range(4)])
+            hand = PokerHand([Card("2", "D") for _ in range(4)])
 
     def test_more_than_5_cards(self):
         with self.assertRaises(ValueError) as context:
-            hand = PokerHand([Card("2","D") for _ in range(6)])
+            hand = PokerHand([Card("2", "D") for _ in range(6)])
 
     def test_str(self):
-        hand = PokerHand([Card("2","D") for _ in range(5)])
+        hand = PokerHand([Card("2", "D") for _ in range(5)])
         self.assertIsInstance(str(hand), str)
 
     def test_straight(self):
-        self.assertTrue(self.straight_flush.straight()) 
+        self.assertTrue(self.straight_flush.straight())
 
     def test_flush(self):
         self.assertTrue(self.straight_flush.flush())
