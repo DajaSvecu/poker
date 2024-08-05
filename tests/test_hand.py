@@ -54,6 +54,9 @@ class TestPokerHand(unittest.TestCase):
     def test_flush(self):
         self.assertTrue(self.straight_flush.flush())
 
+    def test_straight_flush(self):
+        self.assertTrue(self.straight_flush.flush() and self.straight_flush.straight())
+
     def test_four_of_a_kind(self):
         self.assertTrue(self.poker.four_of_a_kind())
 
@@ -62,6 +65,11 @@ class TestPokerHand(unittest.TestCase):
 
     def test_two_of_a_kind(self):
         self.assertTrue(self.full_house.two_of_a_kind())
+
+    def test_full_house(self):
+        self.assertTrue(
+            self.full_house.three_of_a_kind() and self.full_house.two_of_a_kind()
+        )
 
     def test_two_pair(self):
         self.assertTrue(self.two_pair.two_pair())
